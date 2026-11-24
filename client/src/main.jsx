@@ -1,0 +1,10 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { store } from './store.js';
+import App from './App.jsx';
+import './styles.css';
+const theme=createTheme({palette:{mode:'light',primary:{main:'#5b4bdb'},secondary:{main:'#e56b4b'},background:{default:'#f7f7fb',paper:'#fff'}},typography:{fontFamily:'Inter, system-ui, sans-serif',button:{textTransform:'none',fontWeight:700}},shape:{borderRadius:14},components:{MuiButton:{styleOverrides:{root:{borderRadius:12,paddingInline:18}}},MuiCard:{styleOverrides:{root:{borderRadius:18}}}}});
+createRoot(document.getElementById('root')).render(<React.StrictMode><Provider store={store}><BrowserRouter><ThemeProvider theme={theme}><CssBaseline/><App/></ThemeProvider></BrowserRouter></Provider></React.StrictMode>);
